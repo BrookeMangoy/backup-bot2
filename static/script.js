@@ -221,5 +221,119 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
-    }
-});
+
+        // 3. Manejador para el botón "Comprar Ahora" y el formulario
+        const comprarBtn = productDashboard.querySelector('#comprar-ahora-btn');
+        const checkoutFormContainer = productDashboard.querySelector('#checkout-form-container');
+        const orderListDiv = productDashboard.querySelector('#order-summary-list');
+        const orderTotalDiv = productDashboard.querySelector('#order-summary-total');
+
+        if (comprarBtn && checkoutFormContainer && orderListDiv && orderTotalDiv) {
+            
+            comprarBtn.addEventListener('click', () => {
+                // 1. Limpiar el resumen anterior
+                orderListDiv.innerHTML = '';
+                let grandTotal = 0.0;
+                let itemsSelected = 0;
+
+                // 2. Recorrer todas las tarjetas de producto
+                productCards.forEach(card => {
+                    const quantityElement = card.querySelector('.quantity-value');
+                    const quantity = parseInt(quantityElement.textContent, 10);
+
+                    // Si se ha seleccionado al menos 1
+                    if (quantity > 0) {
+                        itemsSelected++;
+                        
+                        // Obtener datos del producto
+                        const name = card.querySelector('h4').textContent;
+                        const priceString = card.querySelector('.price').textContent;
+                        // Limpiar precio (quitar $ y convertir a número)
+                        const unitPrice = parseFloat(priceString.replace('$', ''));
+                        
+                        const lineTotal = unitPrice * quantity;
+                        grandTotal += lineTotal;
+
+                        // 3. Crear la línea del resumen con el formato solicitado
+                        const itemDiv = document.createElement('div');
+                        itemDiv.classList.add('summary-item');
+                        
+                        itemDiv.innerHTML = `
+                            <span class="summary-item-name">${name} x ${quantity}</span>
+                            <span class="summary-item-dots"></span>
+                            <span class="summary-item-price">$${lineTotal.toFixed(2)}</span>
+                        `;
+                        
+                        orderListDiv.appendChild(itemDiv);
+                    }
+                });
+
+                // 4. Mostrar el total
+                if (itemsSelected > 0) {
+                    orderTotalDiv.innerHTML = `
+                        <span>TOTAL</span>
+                        <span>$${grandTotal.toFixed(2)}</span>
+                    `;
+                } else {
+                    // Si no hay productos, mostrar un mensaje
+                    orderListDiv.innerHTML = '<p style="text-align:center; color: var(--coffee-medium);">No has seleccionado ningún producto.</p>';
+                    orderTotalDiv.innerHTML = '';
+                }
+
+                // 5. Mostrar/Ocultar el formulario
+                checkoutFormContainer.classList.toggle('active');
+
+                // 6. Hacer scroll para que el formulario sea visible
+                if (checkoutFormContainer.classList.contains('active')) {
+                    checkoutFormContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        }
+
+        // 4. Manejador para el envío final del formulario (CON MODAL)
+        const customerForm = productDashboard.querySelector('#customer-checkout-form');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const orderNumberSpan = document.getElementById('order-number');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        if (customerForm && confirmationModal && orderNumberSpan && modalCloseBtn) {
+            
+            customerForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Previene que el formulario recargue la página
+                
+                // 1. Validar que los campos requeridos estén llenos
+                if (!customerForm.checkValidity()) {
+                    customerForm.reportValidity(); // Muestra los avisos de "campo requerido"
+                    return;
+                }
+
+                // 2. Generar número de pedido aleatorio (5 dígitos)
+                const randomOrderNum = Math.floor(10000 + Math.random() * 90000);
+                orderNumberSpan.textContent = `#${randomOrderNum}`;
+
+                // 3. Mostrar el modal de confirmación
+                confirmationModal.classList.add('active');
+
+                // 4. Ocultar el formulario de checkout que se deslizó
+                checkoutFormContainer.classList.remove('active');
+
+                // 5. Resetear el formulario (borrar los datos del cliente)
+                customerForm.reset();
+
+                // 6. Resetear las cantidades de los productos a 0
+                productCards.forEach(card => {
+                    const quantityElement = card.querySelector('.quantity-value');
+                    if (quantityElement) {
+                        quantityElement.textContent = '0';
+                    }
+                });
+            });
+
+            // 7. Añadir listener al botón de cerrar el modal ("Entendido")
+            modalCloseBtn.addEventListener('click', () => {
+                confirmationModal.classList.remove('active');
+            });
+        }
+    } // Cierre del if (productDashboard)
+}); // Cierre del 'DOMContentLoaded'
+// --- FIN: NUEVA LÓGICA ---
