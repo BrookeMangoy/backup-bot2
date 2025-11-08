@@ -13,6 +13,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# ... (todo tu código de add_middleware y mount) ...
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
@@ -31,26 +32,5 @@ async def root():
         return f.read()
 
 
-
 class ChatRequest(BaseModel):
     message: str
-    user_id: str = "default_user"  
-
-@app.post("/api/chat")
-async def chat_api(request: ChatRequest):
-    try:
-        respuesta = procesar_mensaje_usuario(request.message, request.user_id)
-        return {"reply": respuesta}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.post("/api/get_message")
-async def get_message(request: dict):
-    box_type = request.get("boxType")
-    messages = {
-        "cafe": "Me interesa la Caja Origen Café",
-        "chocolate": "Me interesa la Caja Origen Chocolate",
-        "dual": "Me interesa la Caja Experiencia Dual"
-    }
-    return {"message": messages.get(box_type, "Quisiera saber más sobre sus cajas")}
