@@ -1,0 +1,82 @@
+ Modelo: models/gemini-2.5-pro-preview-03-25
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-flash-preview-05-20
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-flash
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-flash-lite-preview-06-17
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-pro-preview-05-06
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-pro-preview-06-05
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-pro
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-exp
+   Soporta: ['generateContent', 'countTokens', 'bidiGenerateContent']
+ Modelo: models/gemini-2.0-flash
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-001
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-exp-image-generation
+   Soporta: ['generateContent', 'countTokens', 'bidiGenerateContent']
+ Modelo: models/gemini-2.0-flash-lite-001
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-lite
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-preview-image-generation
+   Soporta: ['generateContent', 'countTokens', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-lite-preview-02-05
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-lite-preview
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-pro-exp
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-pro-exp-02-05
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-exp-1206
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-thinking-exp-01-21
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-thinking-exp
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.0-flash-thinking-exp-1219
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-flash-preview-tts
+   Soporta: ['countTokens', 'generateContent']
+ Modelo: models/gemini-2.5-pro-preview-tts
+   Soporta: ['countTokens', 'generateContent']
+ Modelo: models/learnlm-2.0-flash-experimental
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemma-3-1b-it
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemma-3-4b-it
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemma-3-12b-it
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemma-3-27b-it
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemma-3n-e4b-it
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemma-3n-e2b-it
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemini-flash-latest
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-flash-lite-latest
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-pro-latest
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-flash-lite
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-flash-image-preview
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemini-2.5-flash-image
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemini-2.5-flash-preview-09-2025
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-2.5-flash-lite-preview-09-2025
+   Soporta: ['generateContent', 'countTokens', 'createCachedContent', 'batchGenerateContent']
+ Modelo: models/gemini-robotics-er-1.5-preview
+   Soporta: ['generateContent', 'countTokens']
+ Modelo: models/gemini-2.5-computer-use-preview-10-2025
+   Soporta: ['generateContent', 'countTokens']

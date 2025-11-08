@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cata Consciente - Café & Chocolate de Origen</title>
+<link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+<script src="/static/script.js" defer></script>
+  </head>
+  <body>
+
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <h1>Stone Creek Coffee</h1>
+          <span class="tagline">Café & Chocolate de Origen</span>
+        </div>
+        <nav class="main-nav">
+          <a href="#inicio">Inicio</a>
+          <a href="#cajas">Nuestras Cajas</a>
+          <a href="#historias">Historias</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+
+    <section id="inicio" class="hero">
+
+      <div class="video-background">
+        <video autoplay muted loop playsinline>
+          <source src="/static/assets/videos/video.mp4" type="video/mp4">
+
+          Tu navegador no soporta el elemento video.
+        </video>
+
+      </div>
+      
+      <div class="hero-content">
+        <h2>Descubre el Alma del <span class="highlight">Café y Chocolate</span> de Origen</h2>
+        <p>Una experiencia sensorial única con productos de pequeños productores. Deja que nuestro sommelier digital te guíe hacia tu caja ideal.</p>
+        <button class="cta-button" onclick="document.body.classList.add('show-chatbot')">
+           Encuentra Tu Caja Ideal
+        </button>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-element coffee-beans"></div>
+        <div class="floating-element cacao-nibs"></div>
+      </div>
+    </section>
+
+
+    <section class="how-it-works">
+      <div class="container">
+        <h3>El Viaje de los Sentidos</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <span class="material-symbols-rounded">coffee</span>
+            </div>
+            <h4>Granos de Café Premium</h4>
+            <p>Descubre cafés de altura cultivados en microclimas únicos, con notas que van desde cítricos hasta chocolate y nueces tostadas</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <span class="material-symbols-rounded">cookie</span>
+            </div>
+            <h4>Chocolate de Origen</h4>
+            <p>Explora barras de cacao puro de diferentes regiones, cada una con su perfil único de sabores florales, frutales y terrosos</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <span class="material-symbols-rounded">blender</span>
+            </div>
+            <h4>Maridaje Perfecto</h4>
+            <p>Aprende a combinar cafés y chocolates que se realzan mutuamente, creando experiencias sensoriales inolvidables</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="cajas" class="boxes-section">
+      <div class="container">
+        <h3>Elige Tu Experiencia Sensorial</h3>
+        <div class="boxes-grid">
+          
+
+          <div class="box-card">
+            <div class="box-badge cafe-badge">CAFÉ DE ESPECIALIDAD</div>
+            <div class="box-image">
+              <img src="/static/assets/imagenes/2granos.png" alt="Granos de Café de Especialidad">
+            </div>
+            <div class="box-content">
+              <h4>Origen Café</h4>
+              <ul>
+                <li>• 2 variedades de grano (250g c/u)</li>
+                <li>• Ficha de cata detallada</li>
+                <li>• Tips de preparación profesional</li>
+              </ul>
+              <div class="price">$45/mes</div>
+              <button class="box-select-btn" onclick="selectBox('cafe')">Seleccionar</button>
+            </div>
+          </div>
+
+
+          <div class="box-card">
+            <div class="box-badge chocolate-badge">CHOCOLATE ARTESANAL</div>
+            <div class="box-image">
+              <img src="/static/assets/imagenes/chocolate.jpg" alt="Chocolate Artesanal de Origen">
+            </div>
+            <div class="box-content">
+              <h4>Origen Chocolate</h4>
+              <ul>
+                <li>• 3 barras de origen único</li>
+                <li>• Guía de maridaje</li>
+                <li>• Perfil de cata exclusivo</li>
+              </ul>
+              <div class="price">$52/mes</div>
+              <button class="box-select-btn" onclick="selectBox('chocolate')">Seleccionar</button>
+            </div>
+          </div>
+
+
+          <div class="box-card featured">
+            <div class="box-badge dual-badge">EXPERIENCIA COMPLETA</div>
+            <div class="box-image">
+              <img src="/static/assets/imagenes/ambos.jpg" alt="Experiencia Dual Café y Chocolate">
+
+            </div>
+            <div class="box-content">
+              <h4>Experiencia Dual</h4>
+              <ul>
+                <li>• 1 café + 1 chocolate seleccionados</li>
+                <li>• Maridaje perfecto</li>
+                <li>• Guía de combinaciones</li>
+              </ul>
+              <div class="price">$65/mes</div>
+              <button class="box-select-btn featured-btn" onclick="selectBox('dual')">Seleccionar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="historias" class="stories-section">
+      <div class="container">
+        <h3>Orígenes y Destino</h3>
+        <div class="stories-grid">
+          
+          <div class="story-card">
+            <div class="story-image">
+              <img src="/static/assets/imagenes/1.png" alt="Finca de Café en las Montañas">
+
+            </div>
+            <div class="story-content">
+              <h4>Origen: Tierras Altas de Guatemala</h4>
+              <p class="story-quote">Nuestro café se cultiva en las fértiles laderas volcánicas de Guatemala, a más de 1,500 metros de altura. Este microclima único, con suelos ricos en minerales y lluvias tropicales, otorga a cada grano su cuerpo achocolatado, acidez brillante y notas especiadas que lo distinguen.</p>
+              <span class="story-tag">Café de Altura Volcánica</span>
+            </div>
+          </div>
+
+          <div class="story-card">
+            <div class="story-image">
+              <img src="/static/assets/imagenes/2.png" alt="Nuestro Establecimiento">
+
+            </div>
+            <div class="story-content">
+              <h4>Destino: Nuestra Casa en la Ciudad</h4>
+              <p class="story-quote">Ubicados en el corazón de la ciudad, nuestro espacio es donde la magia sucede. Aquí seleccionamos, tostamos y empacamos cada lote con dedicación. Visítanos en Calle del Aroma 123, donde el café recién tostado y el chocolate artesanal te esperan para una experiencia sensorial única.</p>
+              <span class="story-tag">Tostaduría & Tienda</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <h3>Preguntas Frecuentes</h3>
+        <div class="faq-grid">
+          
+          <div class="faq-item">
+            <h4>¿Puedo cancelar cuando quiera?</h4>
+            <p>Sí, sin compromisos. Puedes cancelar tu suscripción en cualquier momento.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿El envío es gratuito?</h4>
+            <p>¡Sí! El envío es gratuito a todo el país para todas nuestras cajas.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿Puedo cambiar de caja?</h4>
+            <p>Cada mes puedes elegir entre nuestras 3 cajas antes de que se procese tu pedido.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿Incluye instrucciones?</h4>
+            <p>Sí, cada caja incluye una guía completa de cata y preparación.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>Cata Consciente</h3>
+            <p>Descubre el verdadero sabor del café y chocolate de origen único.</p>
+          </div>
+          <div class="footer-links">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="mailto:hola@cataconsciente.com">Contacto</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Cata Consciente. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+
+    <button class="chatbot-toggler">
+      <span class="material-symbols-rounded">mode_comment</span>
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot">
+      <header>
+        <h2>Chat con Mocca</h2>
+        <span class="close-btn material-symbols-outlined">close</span>
+      </header>
+      <ul class="chatbox">
+        <li class="chat incoming">
+          <span class="material-symbols-outlined">coffee</span>
+          <p>¡Hola! Me llamo Mocca<br>¿Cómo te puedo ayudar?</p>
+        </li>
+      </ul>
+      <div class="chat-input">
+  <button id="mic-btn" type="button" class="chat-icon-btn">
+    <span class="material-symbols-rounded">mic</span>
+  </button>
+  <textarea placeholder="Conversa con Mocca..." spellcheck="false" required></textarea>
+  <button id="send-btn" type="button" class="chat-icon-btn">
+    <span class="material-symbols-rounded">send</span>
+  </button>
+</div>
+    </div>
+
+    <script>
+
+      function selectBox(boxType) {
+
+        document.body.classList.add('show-chatbot');
+        
+
+        let message = "";
+        switch(boxType) {
+          case 'cafe':
+            message = "Me interesa la Caja Origen Café";
+            break;
+          case 'chocolate':
+            message = "Me interesa la Caja Origen Chocolate";
+            break;
+          case 'dual':
+            message = "Me interesa la Caja Experiencia Dual";
+            break;
+        }
+        
+
+        setTimeout(() => {
+          console.log("Caja seleccionada:", boxType);
+        }, 1000);
+    }
+
+    </script>
+  </body>
