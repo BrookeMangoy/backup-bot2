@@ -13,9 +13,9 @@ CREATE TABLE IF NOT EXISTS productos (
     nombre TEXT NOT NULL,
     descripcion TEXT NOT NULL,
     categoria TEXT,
-    precio REAL,
+    precio REAL, -- Aseguramos que sea REAL (número con decimales)
     disponible BOOLEAN DEFAULT 1,
-    detalles TEXT  -- Información adicional para el chatbot
+    detalles TEXT  
 )   
 """)
 
@@ -26,75 +26,70 @@ CREATE TABLE IF NOT EXISTS empresa_info (
 )
 """)
 
-# --- LISTA DE PRODUCTOS CON NOMBRES SIMPLIFICADOS ---
+# --- LISTA DE PRODUCTOS CON PRECIOS SOLO NUMÉRICOS (REALES) ---
 productos_ejemplo = [
-    # --- Cafés (Bebidas) ---
-    ("Espresso", 
-     "Café corto e intenso, 2oz.",
-     "Café", 7.0, 1,
-     "Un shot concentrado de café, la base de todo. Fuerte y aromático."),
-
-    ("Americano", 
-     "Café clásico de 10oz.",
-     "Café", 8.0, 1,
-     "Un espresso diluido con agua caliente. Perfecto para cualquier momento."),
-
-    ("Cappuccino", 
-     "Café con leche espumosa, 8oz.",
-     "Café", 12.0, 1,
-     "Partes iguales de espresso, leche vaporizada y espuma de leche. Decorado con cacao."),
-
-    ("Latte", 
-     "Café con más leche, 10oz.",
-     "Café", 13.0, 1,
-     "Un shot de espresso con abundante leche vaporizada y una ligera capa de espuma."),
+    # --- Cafés ---
+    ("Grano Selecto: Tunkimayo", 
+     "Café de especialidad 250g, notas a frutos secos y panela.",
+     "Café", 48.00, 1, # <-- CORREGIDO: Solo número
+     "• Origen: Cusco (Valle de Tunkimayo) • Perfil: Notas a nuez, panela, acidez media. • Proceso: Lavado. Ideal para V60 o Chemex."),
+    
+    ("Blend de la Casa: Fuerte Amanecer", 
+     "Mezcla intensa 500g, ideal para espresso y moka.",
+     "Café", 42.00, 1, # <-- CORREGIDO
+     "• Origen: Blend de Chanchamayo y Cajamarca. • Perfil: Tostado oscuro, cuerpo alto, notas a chocolate amargo y muy baja acidez."),
      
-    ("Mocaccino", 
-     "El balance perfecto de café y chocolate.",
-     "Café", 14.0, 1,
-     "Un latte con un toque de nuestro chocolate de la casa y crema batida."),
+    ("Café Exótico: Geisha de Altura", 
+     "Grano Geisha 250g, notas florales y cítricas.",
+     "Café", 65.00, 1, # <-- CORREGIDO
+     "• Origen: Cajamarca (Jaén) • Perfil: Notas a jazmín, bergamota, té de durazno. • Proceso: Lavado. Una joya para métodos de goteo."),
+     
+    ("Descafeinado Natural", 
+     "Café 250g, descafeinado por proceso natural Swiss Water.",
+     "Café", 45.00, 1, # <-- CORREGIDO
+     "• Origen: Cajamarca. • Perfil: Sabor suave, notas a caramelo y malta. • Proceso: Swiss Water Process, libre de químicos."),
+     
+    # --- Chocolates ---
+    ("Tableta Piura Blanco", 
+     "Barra 80g. Cacao blanco de Piura, notas cítricas y frutales.",
+     "Chocolate", 22.00, 1, # <-- CORREGIDO
+     "• Origen: Piura (Morropón) • Perfil: Notas a lima, frutos secos. Cremoso y de bajo amargor, único en su tipo."),
+     
+    ("Barra Artesanal con Sal de Maras", 
+     "Barra 80g. Oscuro con cristales de Sal de Maras.",
+     "Chocolate", 24.00, 1, # <-- CORREGIDO
+     "• Origen: Blend peruano con Sal de Maras (Cusco). • Perfil: Contraste salino perfecto que realza las notas del cacao."),
+     
+    ("Tableta Cremosa", 
+     "Barra 80g. Chocolate con leche (milk chocolate).",
+     "Chocolate", 20.00, 1, # <-- CORREGIDO
+     "• Origen: Amazonas (Bagua) • Perfil: Cremoso, notas a caramelo y nueces tostadas. El balance perfecto."),
+     
+    ("Barra Intensa: Chuncho", 
+     "Barra 80g. Cacao Chuncho aromático, notas a frutos secos.",
+     "Chocolate", 25.00, 1, # <-- CORREGIDO
+     "• Origen: Cusco (Valle de La Convención) • Perfil: Cacao Chuncho muy aromático, notas a café y un toque floral."),
+     
+    ("Bombones de Aguaymanto", 
+     "6 Bombones rellenos de ganache de aguaymanto.",
+     "Chocolate", 30.00, 1, # <-- CORREGIDO
+     "• Centro de ganache de chocolate 60% con pulpa de aguaymanto fresco. Cubierta de chocolate 70%."),
 
-    # --- Chocolates (Postres y Bebidas) ---
-    ("Chocolate Caliente", 
-     "Espeso y cremoso, estilo de la casa.",
-     "Chocolate", 15.0, 1,
-     "Nuestra receta especial de chocolate espeso, perfecto para días fríos. Se sirve con marshmallows."),
-
-    ("Torta de Chocolate", 
-     "Tajada de torta húmeda con fudge.",
-     "Chocolate", 16.0, 1,
-     "Keke húmedo de chocolate, relleno y cubierto con nuestro fudge de la casa."),
-
-    ("Brownie con Helado", 
-     "Brownie tibio con helado de vainilla.",
-     "Chocolate", 18.0, 1,
-     "Brownie denso de chocolate, servido tibio con una bola de helado de vainilla y salsa de fudge."),
-
-    ("Caja de Bombones", # <-- CAMBIO DE NOMBRE
-     "Bombones de chocolate surtidos (6 unidades).",
-     "Chocolate", 30.0, 1,
-     "Una caja con 6 bombones artesanales rellenos de manjar, menta y praliné."),
-
-    ("Galleta de Chocolate", # <-- CAMBIO DE NOMBRE
-     "Galleta grande y suave con chispas de chocolate.",
-     "Chocolate", 9.0, 1,
-     "Recién horneada, suave por dentro y crujiente por fuera."),
-
-    # --- Combos (Actualizados) ---
-    ("Combo Clásico", 
-     "Un Americano (10oz) y una Torta de Chocolate.",
-     "Combo", 22.0, 1,
-     "El maridaje perfecto: la acidez del café con el dulce de nuestra torta de fudge."),
+    # --- Combos ---
+    ("Caja Degustación Café", 
+     "Prueba 3 de nuestros mejores cafés de origen (150g c/u).",
+     "Combo", 85.00, 1, # <-- CORREGIDO
+     "• 1x Grano Selecto: Tunkimayo • 1x Café Exótico: Geisha de Altura • 1x Blend de la Casa. Incluye guía de cata."),
     
-    ("Combo Dulce", 
-     "Un Chocolate Caliente y un Brownie.",
-     "Combo", 30.0, 1,
-     "Ideal para los amantes del chocolate. Nuestro chocolate espeso con un brownie tibio."),
-    
-    ("Combo de Tarde", 
-     "Un Cappuccino (8oz) y Galleta de Chocolate.", # <-- CAMBIO DE NOMBRE
-     "Combo", 19.0, 1,
-     "La pausa perfecta para la tarde. Un cappuccino espumoso y una galleta recién horneada.")
+    ("Caja Degustación Chocolate", 
+     "Un viaje por nuestras 3 barras artesanales más vendidas.",
+     "Combo", 70.00, 1, # <-- CORREGIDO
+     "• 1x Tableta Piura Blanco • 1x Barra Artesanal con Sal de Maras • 1x Barra Intensa: Chuncho. Incluye guía de maridaje."),
+     
+    ("Caja Dúo: Maridaje Perfecto", 
+     "Un café + un chocolate seleccionados.",
+     "Combo", 75.00, 1, # <-- CORREGIDO
+     "• Café: Grano Selecto: Tunkimayo (250g) • Chocolate: Tableta Piura Blanco (80g) • Guía de maridaje.")
 ]
 
 cursor.executemany("""
@@ -103,16 +98,16 @@ VALUES (?, ?, ?, ?, ?, ?)
 """, productos_ejemplo)
 
 
-# --- Info de la empresa (Dirección en Lima) ---
+# --- Info de la empresa ---
 info_empresa = [
     ("nombre", "Stone Creek Coffee"),
-    ("mision", "Ofrecer tecnología accesible y de calidad para todos."),
-    ("vision", "Ser líder en innovación tecnológica en Latinoamérica para 2030."),
-    ("telefono", "+51 1 445 1234"), # Teléfono de Lima
+    ("mision", "Ofrecer la esencia auténtica del café y cacao peruano."),
+    ("vision", "Ser la marca latinoamericana líder en experiencias de cata consciente."),
+    ("telefono", "+51 1 445 1234"), 
     ("email", "contacto@cata-consciente.com"),
-    ("direccion", "Av. Larco 123, Miraflores, Lima, Perú"), # Dirección en Lima
+    ("direccion", "Av. Larco 123, Miraflores, Lima, Perú"), 
     ("chatbot_nombre", "Mocca"),
-    ("empresa_descripcion", "Somos Stone Creek Coffee, una cafetería de especialidad en el corazón de Miraflores. Nuestro sommelier digital, Mocca, te ayudará a elegir tu bebida o postre ideal.")
+    ("empresa_descripcion", "Somos Stone Creek Coffee, especialistas en experiencias sensoriales con café y chocolate de origen peruano. Nuestro sommelier digital, Mocca, te guiará para encontrar tu caja ideal.")
 ]
 
 

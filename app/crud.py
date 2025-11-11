@@ -1,32 +1,50 @@
+# app/crud.py - VERSIÓN CORREGIDA PARA EXTRAER DATOS CON CLAVES
 
+import sqlite3
 from app.database import get_db_connection
-def buscar_productos(palabras_clave: str):
-    """Busca productos por nombre o descripción (case-insensitive)."""
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    query = """
-    SELECT id, nombre, descripcion, categoria, precio, detalles
-    FROM productos
-    WHERE disponible = 1
-      AND (nombre LIKE ? OR descripcion LIKE ? OR detalles LIKE ?)
-    """
-    like_pattern = f"%{palabras_clave}%"
-    cursor.execute(query, (like_pattern, like_pattern, like_pattern))
-    productos = [dict(row) for row in cursor.fetchall()]
-    conn.close()
-    return productos
 
-def obtener_info_empresa(clave: str = None):
-    """Obtiene toda la info de la empresa o una clave específica."""
+# --- FUNCIÓN CORREGIDA PARA GARANTIZAR QUE SE EXTRAIGA EL PRECIO ---
+def buscar_productos(busqueda: str):
+    """
+    Busca productos por nombre, categoría o detalles, y los devuelve como una lista de diccionarios.
+    """
+    conn = get_db_connection()
+    # Usamos row_factory para que los resultados sean diccionarios (con claves) en lugar de tuplas.
+    conn.row_factory = sqlite3.Row 
+    cursor = conn.cursor()
+    
+    # La búsqueda ahora es más amplia, buscando el término en nombre, categoría y detalles.
+    query = """
+        SELECT nombre, descripcion, precio, categoria, detalles
+        FROM productos
+        WHERE nombre LIKE ? OR categoria LIKE ? OR detalles LIKE ?
+    """
+    # El término de búsqueda se envuelve con comodines (%) para buscar coincidencias parciales.
+    termino = f"%{busqueda}%"
+    
+    cursor.execute(query, (termino, termino, termino))
+    
+    productos_db = cursor.fetchall()
+    conn.close()
+    
+    # Convertimos los resultados (que son objetos sqlite3.Row) en diccionarios para el AI Engine
+    productos_list = []
+    for row in productos_db:
+        productos_list.append(dict(row))
+        
+    return productos_list
+
+# --- FUNCIÓN DE INFO DE LA EMPRESA (Se mantiene) ---
+def obtener_info_empresa():
+    """
+    Obtiene toda la información clave de la empresa.
+    """
     conn = get_db_connection()
     cursor = conn.cursor()
-    if clave:
-        cursor.execute("SELECT valor FROM empresa_info WHERE clave = ?", (clave,))
-        row = cursor.fetchone()
-        conn.close()
-        return row["valor"] if row else None
-    else:
-        cursor.execute("SELECT clave, valor FROM empresa_info")
-        info = {row["clave"]: row["valor"] for row in cursor.fetchall()}
-        conn.close()
-        return info
+    
+    cursor.execute("SELECT clave, valor FROM empresa_info")
+    info_db = cursor.fetchall()
+    conn.close()
+    
+    info_dict = {clave: valor for clave, valor in info_db}
+    return info_dict
