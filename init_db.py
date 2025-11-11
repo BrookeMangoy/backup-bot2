@@ -1,4 +1,3 @@
-
 import sqlite3
 import os
 
@@ -27,21 +26,75 @@ CREATE TABLE IF NOT EXISTS empresa_info (
 )
 """)
 
+# --- LISTA DE PRODUCTOS CON NOMBRES SIMPLIFICADOS ---
 productos_ejemplo = [
-    ("Caja Origen Café", 
-     "Caja con 2 variedades de grano (250g c/u) + ficha de cata + tips de preparación.",
-     "Café", 45.0, 1,
-     "• Variedad 1: Guatemala Altura Volcánica - Notas a chocolate y especias\n• Variedad 2: Colombia Supremo - Acidez brillante y notas cítricas\n• Incluye guía de molienda y extracción para cafetera francesa, pour over y espresso"),
+    # --- Cafés (Bebidas) ---
+    ("Espresso", 
+     "Café corto e intenso, 2oz.",
+     "Café", 7.0, 1,
+     "Un shot concentrado de café, la base de todo. Fuerte y aromático."),
+
+    ("Americano", 
+     "Café clásico de 10oz.",
+     "Café", 8.0, 1,
+     "Un espresso diluido con agua caliente. Perfecto para cualquier momento."),
+
+    ("Cappuccino", 
+     "Café con leche espumosa, 8oz.",
+     "Café", 12.0, 1,
+     "Partes iguales de espresso, leche vaporizada y espuma de leche. Decorado con cacao."),
+
+    ("Latte", 
+     "Café con más leche, 10oz.",
+     "Café", 13.0, 1,
+     "Un shot de espresso con abundante leche vaporizada y una ligera capa de espuma."),
+     
+    ("Mocaccino", 
+     "El balance perfecto de café y chocolate.",
+     "Café", 14.0, 1,
+     "Un latte con un toque de nuestro chocolate de la casa y crema batida."),
+
+    # --- Chocolates (Postres y Bebidas) ---
+    ("Chocolate Caliente", 
+     "Espeso y cremoso, estilo de la casa.",
+     "Chocolate", 15.0, 1,
+     "Nuestra receta especial de chocolate espeso, perfecto para días fríos. Se sirve con marshmallows."),
+
+    ("Torta de Chocolate", 
+     "Tajada de torta húmeda con fudge.",
+     "Chocolate", 16.0, 1,
+     "Keke húmedo de chocolate, relleno y cubierto con nuestro fudge de la casa."),
+
+    ("Brownie con Helado", 
+     "Brownie tibio con helado de vainilla.",
+     "Chocolate", 18.0, 1,
+     "Brownie denso de chocolate, servido tibio con una bola de helado de vainilla y salsa de fudge."),
+
+    ("Caja de Bombones", # <-- CAMBIO DE NOMBRE
+     "Bombones de chocolate surtidos (6 unidades).",
+     "Chocolate", 30.0, 1,
+     "Una caja con 6 bombones artesanales rellenos de manjar, menta y praliné."),
+
+    ("Galleta de Chocolate", # <-- CAMBIO DE NOMBRE
+     "Galleta grande y suave con chispas de chocolate.",
+     "Chocolate", 9.0, 1,
+     "Recién horneada, suave por dentro y crujiente por fuera."),
+
+    # --- Combos (Actualizados) ---
+    ("Combo Clásico", 
+     "Un Americano (10oz) y una Torta de Chocolate.",
+     "Combo", 22.0, 1,
+     "El maridaje perfecto: la acidez del café con el dulce de nuestra torta de fudge."),
     
-    ("Caja Origen Chocolate", 
-     "3 barras de origen único + guía de maridaje + perfil de cata exclusivo.",
-     "Chocolate", 52.0, 1,
-     "• Barra 1: Ecuador 70% - Notas florales y frutales\n• Barra 2: Perú 65% - Sabores terrosos y nueces tostadas\n• Barra 3: Madagascar 80% - Frutas rojas y acidez vibrante\n• Guía de maridaje con café, vino y queso"),
+    ("Combo Dulce", 
+     "Un Chocolate Caliente y un Brownie.",
+     "Combo", 30.0, 1,
+     "Ideal para los amantes del chocolate. Nuestro chocolate espeso con un brownie tibio."),
     
-    ("Caja Experiencia Dual", 
-     "1 café + 1 chocolate seleccionados + maridaje perfecto + guía de combinaciones.",
-     "Combo", 65.0, 1,
-     "• Café: Guatemala Altura Volcánica (250g)\n• Chocolate: Ecuador 70% (80g)\n• Guía de maridaje: cómo combinar ambos para realzar sabores\n• Tips: temperatura ideal, tiempos de degustación, orden de cata")
+    ("Combo de Tarde", 
+     "Un Cappuccino (8oz) y Galleta de Chocolate.", # <-- CAMBIO DE NOMBRE
+     "Combo", 19.0, 1,
+     "La pausa perfecta para la tarde. Un cappuccino espumoso y una galleta recién horneada.")
 ]
 
 cursor.executemany("""
@@ -50,17 +103,17 @@ VALUES (?, ?, ?, ?, ?, ?)
 """, productos_ejemplo)
 
 
+# --- Info de la empresa (Dirección en Lima) ---
 info_empresa = [
     ("nombre", "Stone Creek Coffee"),
     ("mision", "Ofrecer tecnología accesible y de calidad para todos."),
     ("vision", "Ser líder en innovación tecnológica en Latinoamérica para 2030."),
-    ("telefono", "+56 9 1234 5678"),
+    ("telefono", "+51 1 445 1234"), # Teléfono de Lima
     ("email", "contacto@cata-consciente.com"),
-    ("direccion", "Av. Siempre Viva 123, Santiago, Chile"),
+    ("direccion", "Av. Larco 123, Miraflores, Lima, Perú"), # Dirección en Lima
     ("chatbot_nombre", "Mocca"),
-    ("empresa_descripcion", "Somos Stone Creek Coffee, especialistas en experiencias sensoriales con café y chocolate de origen. Nuestro sommelier digital, Mocca, te guiará para encontrar tu caja ideal.")
+    ("empresa_descripcion", "Somos Stone Creek Coffee, una cafetería de especialidad en el corazón de Miraflores. Nuestro sommelier digital, Mocca, te ayudará a elegir tu bebida o postre ideal.")
 ]
-
 
 
 cursor.executemany("""

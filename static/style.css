@@ -941,12 +941,15 @@ body {
   font-weight: 700;
 }
 
-/* Grid de Productos */
+
+/* --- INICIO: CAMBIO 1 --- */
+/* --- TARJETAS DE PRODUCTO MÁS PEQUEÑAS --- */
+
 .product-grid {
   flex: 1; /* Ocupa el espacio restante */
   display: grid;
-  /* Ajusta las columnas: 2 en pantallas grandes, 1 en pequeñas */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* CAMBIO: Reducido de 280px a 240px para tarjetas más pequeñas */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
 }
 
@@ -967,7 +970,8 @@ body {
 
 .product-image-container {
   width: 100%;
-  height: 220px; /* Altura fija para la imagen */
+  /* CAMBIO: Reducido de 220px a 180px */
+  height: 180px; 
   margin-bottom: 1rem;
   overflow: hidden;
   border-radius: 10px;
@@ -981,9 +985,15 @@ body {
 
 .product-card-dash h4 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  /* CAMBIO: Reducido de 1.4rem a 1.25rem */
+  font-size: 1.25rem;
   color: var(--chocolate-dark);
   margin-bottom: 0.5rem;
+  /* Asegura altura mínima para alinear tarjetas */
+  min-height: 40px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-card-dash .price {
@@ -992,6 +1002,23 @@ body {
   color: var(--chocolate-medium);
   margin-bottom: 1rem;
 }
+/* --- FIN: CAMBIO 1 --- */
+
+
+/* --- INICIO: CAMBIO 2 --- */
+/* --- ESTILO PARA RESALTAR COMBOS --- */
+.product-card-dash[data-category="combo"] {
+  background-color: rgba(212, 175, 55, 0.05); /* Fondo dorado 5% */
+  border: 2px solid var(--gold);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2); /* Sombra dorada */
+}
+
+.product-card-dash[data-category="combo"]:hover {
+  transform: translateY(-5px) scale(1.02); /* Efecto hover más pronunciado */
+  border-color: #b38f1a; /* Dorado más oscuro en hover */
+}
+/* --- FIN: CAMBIO 2 --- */
+
 
 /* Selector de Cantidad */
 .quantity-selector {
@@ -1053,7 +1080,8 @@ body {
   }
 
   .product-grid {
-    grid-template-columns: 1fr; /* Una columna en móvil */
+    /* Mantiene una sola columna en móvil */
+    grid-template-columns: 1fr; 
   }
 }
 .view {

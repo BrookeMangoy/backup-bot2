@@ -102,11 +102,11 @@ def procesar_mensaje_usuario(mensaje: str, user_id: str = "default_user") -> str
 Nuestras cajas son ideales como regalo porque ofrecen una experiencia sensorial única.
 Te recomiendo estas opciones:
 
-• **Caja Origen Café** ($45): Perfecta para amantes del café. Incluye 2 variedades de grano (250g c/u), ficha de cata detallada y tips de preparación profesional.
+• **Caja Origen Café** (S/45): Perfecta para amantes del café. Incluye 2 variedades de grano (250g c/u), ficha de cata detallada y tips de preparación profesional.
 
-• **Caja Origen Chocolate** ($52): Ideal para quienes disfrutan del chocolate artesanal. Incluye 3 barras de origen único, guía de maridaje y perfil de cata exclusivo.
+• **Caja Origen Chocolate** (S/52): Ideal para quienes disfrutan del chocolate artesanal. Incluye 3 barras de origen único, guía de maridaje y perfil de cata exclusivo.
 
-• **Caja Experiencia Dual** ($65): La opción más completa. Combina café y chocolate seleccionados para realzar sabores, con guía de combinaciones.
+• **Caja Experiencia Dual** (S/65): La opción más completa. Combina café y chocolate seleccionados para realzar sabores, con guía de combinaciones.
 
 ¿Te gustaría que te ayude a elegir según el gusto de la persona?
 """

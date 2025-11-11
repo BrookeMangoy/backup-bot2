@@ -1,6 +1,5 @@
 
 from app.database import get_db_connection
-
 def buscar_productos(palabras_clave: str):
     """Busca productos por nombre o descripción (case-insensitive)."""
     conn = get_db_connection()

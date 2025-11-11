@@ -263,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="summary-item-dots"></span>
                             <span class="summary-item-price">$${lineTotal.toFixed(2)}</span>
                         `;
-                        
                         orderListDiv.appendChild(itemDiv);
                     }
                 });
