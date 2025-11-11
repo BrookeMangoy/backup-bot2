@@ -87,7 +87,7 @@ def procesar_mensaje_usuario(mensaje: str, user_id: str = "default_user") -> str
     # Ordenados por longitud (los más largos primero) para evitar coincidencias parciales incorrectas
     nombres_a_buscar = [
         "fuerte amanecer", "piura blanco", "sal de maras", "geisha de altura",
-        "caja degustación café", "caja degustación chocolate", "caja dúo",
+        "Pack degustación café", "Pack degustación chocolate", "Pack dúo",
         "tunkimayo", "chuncho", "aguaymanto", "cremosa", "descafeinado", 
         "chocolate", "café", "combo", "barra", "tableta", "cafe", "chocolates"
     ]

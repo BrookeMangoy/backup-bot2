@@ -76,17 +76,17 @@ productos_ejemplo = [
      "• Centro de ganache de chocolate 60% con pulpa de aguaymanto fresco. Cubierta de chocolate 70%."),
 
     # --- Combos ---
-    ("Caja Degustación Café", 
+    ("Pack Degustación Café", 
      "Prueba 3 de nuestros mejores cafés de origen (150g c/u).",
      "Combo", 85.00, 1, # <-- CORREGIDO
      "• 1x Grano Selecto: Tunkimayo • 1x Café Exótico: Geisha de Altura • 1x Blend de la Casa. Incluye guía de cata."),
     
-    ("Caja Degustación Chocolate", 
+    ("Pack Degustación Chocolate", 
      "Un viaje por nuestras 3 barras artesanales más vendidas.",
      "Combo", 70.00, 1, # <-- CORREGIDO
      "• 1x Tableta Piura Blanco • 1x Barra Artesanal con Sal de Maras • 1x Barra Intensa: Chuncho. Incluye guía de maridaje."),
      
-    ("Caja Dúo: Maridaje Perfecto", 
+    ("Pack Dúo: Maridaje Perfecto", 
      "Un café + un chocolate seleccionados.",
      "Combo", 75.00, 1, # <-- CORREGIDO
      "• Café: Grano Selecto: Tunkimayo (250g) • Chocolate: Tableta Piura Blanco (80g) • Guía de maridaje.")
@@ -107,7 +107,7 @@ info_empresa = [
     ("email", "contacto@cata-consciente.com"),
     ("direccion", "Av. Larco 123, Miraflores, Lima, Perú"), 
     ("chatbot_nombre", "Mocca"),
-    ("empresa_descripcion", "Somos Stone Creek Coffee, especialistas en experiencias sensoriales con café y chocolate de origen peruano. Nuestro sommelier digital, Mocca, te guiará para encontrar tu caja ideal.")
+    ("empresa_descripcion", "Somos Stone Creek Coffee, especialistas en experiencias sensoriales con café y chocolate de origen peruano. Nuestro sommelier digital, Mocca, te guiará para encontrar tu Pack ideal.")
 ]
 
 
